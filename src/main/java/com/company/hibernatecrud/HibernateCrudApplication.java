@@ -19,7 +19,7 @@ public class HibernateCrudApplication {
     @Bean
     public CommandLineRunner run(StudentDAO student) {
         return runner -> {
-            deleteById(student,6);
+            creatMultipleStudents(student);
         };
     }
 
@@ -36,17 +36,11 @@ public class HibernateCrudApplication {
         Student tempStudent1 = new Student("dsadsa", "dsfdgtrhgt", "testtester33333@gmail.com");
         Student tempStudent2 = new Student("dsadsa", "sdsfsfgfd", "fsdgfgthfhyt");
         Student tempStudent3 = new Student("Bug", "Reporter", "dfdgfgf");
-        Student tempStudent4 = new Student("Bug", "Reporter", "sfdfd");
-        Student tempStudent5 = new Student("Bug", "dsads", "breporter22222@gmail.com");
-        Student tempStudent6 = new Student("sdadadsdfdf", "sdadasdaf", "breporter22222@gmail.com");
 
         student.create(tempStudent);
         student.create(tempStudent1);
         student.create(tempStudent2);
         student.create(tempStudent3);
-        student.create(tempStudent4);
-        student.create(tempStudent5);
-        student.create(tempStudent6);
     }
 
 
@@ -110,5 +104,21 @@ public class HibernateCrudApplication {
 
     private void deleteById(StudentDAO student, Integer id) {
         student.deleteById(id);
+    }
+
+    private void deleteAll(StudentDAO student) {
+        student.deleteAll();
+    }
+
+    private void deleteByFirstName(StudentDAO student) {
+        student.deleteByFirstName();
+    }
+
+    private void deleteByLastName(StudentDAO student) {
+        student.deleteByLastName();
+    }
+
+    private void deleteByEmail(StudentDAO student) {
+        student.deleteByEmail();
     }
 }

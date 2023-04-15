@@ -25,10 +25,12 @@ public interface StudentDAO {
     void updateEmail(Integer id, String newEmail);
 
     void deleteById(Integer id);
-//
-//    void deleteByFirstName(String firstName);
-//
-//    void deleteByLastName(String lastName);
-//
-//    void deleteByEmail(String email);
+
+    void deleteAll();
+
+    void deleteByFirstName();
+
+    void deleteByLastName();
+
+    void deleteByEmail();
 }

@@ -99,58 +99,28 @@ public class StudentDAOImpl implements StudentDAO {
 
         entityManager.remove(student);
     }
-//
-//    @Override
-//    @Transactional
-//    public void deleteByFirstName(String firstName) {
-//        TypedQuery<Student> query = entityManager.createQuery("FROM Student where firstName=:theData", Student.class);
-//
-//        query.setParameter("theData", firstName);
-//        List<Student> students = query.getResultList();
-//
-//        for (int i = 0; i < students.size();) {
-//            Student s = students.get(i);
-//            if (s == null) {
-//                i++;
-//            } else {
-//                entityManager.remove(s);
-//            }
-//        }
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void deleteByLastName(String lastName) {
-//        TypedQuery<Student> query = entityManager.createQuery("FROM Student where lastName=:theData", Student.class);
-//
-//        query.setParameter("theData", lastName);
-//        List<Student> students = query.getResultList();
-//
-//        for (int i = 0; i < students.size();) {
-//            Student s = students.get(i);
-//            if (s == null) {
-//                i++;
-//            } else {
-//                entityManager.remove(s);
-//            }
-//        }
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void deleteByEmail(String email) {
-//        TypedQuery<Student> query = entityManager.createQuery("FROM Student where email=:theData", Student.class);
-//
-//        query.setParameter("theData", email);
-//        List<Student> students = query.getResultList();
-//
-//        for (int i = 0; i < students.size();) {
-//            Student s = students.get(i);
-//            if (s == null) {
-//                i++;
-//            } else {
-//                entityManager.remove(s);
-//            }
-//        }
-//    }
+
+    @Override
+    @Transactional
+    public void deleteAll() {
+        int numRowsDeleted = entityManager.createQuery("delete from Student ").executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public void deleteByFirstName() {
+        int numRowsDeleted = entityManager.createQuery("delete from Student where firstName='Abdullah'", Student.class).executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public void deleteByLastName() {
+        int numRowsDeleted = entityManager.createQuery("delete from Student where lastName='Bayramov'", Student.class).executeUpdate();
+    }
+
+    @Override
+    @Transactional
+    public void deleteByEmail() {
+        int numRowsDeleted = entityManager.createQuery("delete from Student where email='@ada.edu.az'", Student.class).executeUpdate();
+    }
 }
